@@ -1,0 +1,46 @@
+<!--
+    We are going to fetch an api, and incorporate dom in  it.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DOM-1 Practice</title>
+    <style>
+        .mybutton{
+            cursor: pointer;
+            margin-bottom : 15px;
+        }
+        .fc{
+            margin-bottom: 15px;
+        }
+        .sc{
+            margin-bottom: 15px;
+        }
+    </style> 
+</head>
+<script>
+    async function populateDiv(){
+        const a=document.getElementById("firstNumber").value;  
+        const b=document.getElementById("secondNumber").value; 
+        const element= document.getElementById("finalSum");
+        //fetch
+        const res=await fetch("https://sum-server.100xdevs.com/sum?a=", a, "&b=", b);  //The Backend is not working but the request goes out
+        const ans=await res.text(); //.text() is used to retrieve the text content of an element in the DOM. DOM only understands string format.
+        console.log(ans);
+        /*
+        So basically res contains all information along with the main content. But ans filters out the main content from res in string format.
+        */
+    }
+</script>
+<body>
+    <div class="fc">
+        <input id="firstNumber" type="text" placeholder="Enter first number">
+    </div>
+    <div class="sc">
+        <input id="secondNumber" type="text" placeholder="Enter second number">
+    </div>
+    <button onclick="populateDiv()" class="mybutton">Calculate Sum</button>
+    <div id="finalSum"> </div>
+</body>
+</html> 

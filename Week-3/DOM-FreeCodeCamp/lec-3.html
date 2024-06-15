@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM PRACTICE</title>
+    <style>
+        .container{
+            padding-left:40px;
+            margin-left:550px;
+            margin-top:150px;
+            border-style:solid;
+            margin-right:300px;
+        }
+
+        .header{
+            font-size:50px
+        }
+
+        .sublist{
+            margin-right:300px;
+            padding-left: 50px;
+            font-size:20px;
+            margin-bottom: 10px;
+            border-style: solid;    
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header" id="main-heading">Favourite Movie Franchise</h1>
+        <ul class="lists">
+            <li class="sublist">The Matrix</li>
+            <li class="sublist">Star Wars</li>
+            <li class="sublist">Harry Potter</li>
+            <li class="sublist">Lord of the Rings</li>
+            <li class="sublist">Marvel</li>
+        </ul>
+    </div>
+
+    <script>
+
+        //Creating an element-If we want to add another list item
+
+        const title=document.getElementById("main-heading");  //ByID
+        const listItem=document.getElementsByClassName("sublist");
+        const mainlist=document.getElementsByClassName("lists");
+
+        //Adding an element
+        const newel=document.createElement("li");  //We are creating an instant of class lists. So for adding an element, we first create an instant of the type of that element(Here <li>), then append it into the table ,and then we give its innertext
+        //We are doing appendChild because sublists are under mainlist
+        mainlist[0].appendChild(newel);  //Appending the newly created empty element into the mainlist, where there are other lists
+        //Whenever there is a parent with a collection of children, do parent[0].appendChild(newchild)
+        newel.innerHTML="X-Men"; //Now adding the text to the newly added element
+        newel.setAttribute("class","sublist"); //Now I have modified the attribute of X-Men to the id same id of other sublist. Now X-Men is also like other Attributes
+        //setAttribute has arguements-specifier(id/class) and the corresponding specifier name.
+    </script>    
+</body>
+</html>

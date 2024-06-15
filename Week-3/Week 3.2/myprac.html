@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Tab</title>
+</head>
+
+<body>
+    <script>
+        async function getAnimalData(){
+            const resp=await fetch("https://fakerapi.it/api/v1/persons");
+            const ans=await resp.json();
+            console.log(ans);
+        }
+    </script>
+    <button onclick="getAnimalData()">Animal Data</button>
+</body>
+
+</html>

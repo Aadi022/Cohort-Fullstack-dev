@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM PRACTICE</title>
+    <style>
+        .container{
+            padding-left:40px;
+            margin-left:550px;
+            margin-top:150px;
+            border-style:solid;
+            margin-right:300px;
+        }
+
+        .header{
+            font-size:50px
+        }
+
+        .sublist{
+            margin-right:300px;
+            padding-left: 50px;
+            font-size:20px;
+            margin-bottom: 10px;
+            border-style: solid;    
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header" id="main-heading">Favourite Movie Franchise</h1>
+        <ul class="lists">
+            <li class="sublist">The Matrix</li>
+            <li class="sublist">Star Wars</li>
+            <li class="sublist">Harry Potter</li>
+            <li class="sublist">Lord of the Rings</li>
+            <li class="sublist">Marvel</li>
+        </ul>
+    </div>
+</body> 
+<script>
+    //Here I am styling elements using javascript
+    const title=document.getElementById("main-heading");  //ByID
+    //title.style.color="red"; //This changes the color of the main-heading
+    const listItem=document.getElementsByClassName("sublist");
+    /*for(let i=0;i<listItem.length;i++){
+        listItem[i].style.fontSize="5px"
+    }
+    */ 
+    
+</script>
+</html>

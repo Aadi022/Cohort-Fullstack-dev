@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+
+    <style>
+        body{
+            background-image: url('pic.png');
+            background-size: cover;
+        }
+
+        .main{
+            margin-left:500px;
+            margin-top:100px;
+        }
+
+        .sub1{
+            margin-left:20px;
+            border-style: solid;
+            margin-right:340px;
+            padding-left: 30px;
+            padding-top: 10px;
+            border-radius: 10px;
+            padding-bottom: 100px;
+        }
+        .main-header{
+            margin-left:120px;
+            font-style: italic;
+            font-size: 50px;
+        }
+
+        .inp{
+            border-radius: 7px;
+            height: 30px;
+            width: 450px;
+        }
+
+        .firstb{
+            border-radius: 10px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+        .enable{
+            border-style: solid;
+            margin-right: 150px;
+            padding-left: 5px;
+            border-radius: 7px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="main-header">To-Do List</h1>
+        <div class="sub1">
+            <input type="text" placeholder="Enter your Task" class="inp" id="firstinp">   <button id="mybutton" class="firstb">Enter</button>
+            <ul id="mainlist">
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const myinp=document.getElementById("firstinp");
+        const enterb=document.getElementById("mybutton");
+        const par=document.getElementById("mainlist");
+
+
+        function addelement(){
+            if(myinp.value=="" || myinp.value==" "){
+                alert("Enter a valid input");
+                return ;
+            }
+            //Creating an instance for list
+            const newel=document.createElement("li");
+            newel.style.listStyleType="none";
+            newel.classList.add("enable");
+
+            //list
+            par.appendChild(newel);
+    
+            //Create checkbox and add it to the list
+            const checkbox=document.createElement("input");
+            checkbox.type="checkbox";
+            checkbox.style.cursor="pointer";
+            newel.appendChild(checkbox);
+
+            //Now add the textbox to list
+            const mytext=document.createTextNode(myinp.value);
+            newel.appendChild(mytext);
+            
+            myinp.value="";   //The placeholder returns to its original format
+
+            //If we want to remove the list when checbox is clicked 
+            checkbox.addEventListener("click",function(){
+                newel.remove();
+            })
+
+            //Creating and adding edit button
+            const rename=document.createElement("button");
+            rename.style.height="35px";
+            rename.style.width="70px";
+            rename.textContent="Edit"
+            rename.style.marginLeft="310px";
+            newel.appendChild(rename);
+
+
+            rename.addEventListener("click",function(){
+                const newinp=document.createElement("input");
+                newinp.type="text";
+                newinp.placeholder="Enter the task";
+                const newbutton=document.createElement("button");
+                newbutton.textContent="Enter";
+                newbutton.style.height="35px";
+                newbutton.style.width="65px";
+                newbutton.pointer="cursor";
+                newel.replaceChild(newinp,mytext);
+                newel.appendChild(newbutton);
+                newbutton.addEventListener("click",function(){
+                    if(newinp.value=="" || newinp.value==" "){
+                        alert("Enter a valid input");
+                        return ;
+                    }
+                    const inpval=newinp.value;
+                    const newtext=document.createTextNode(inpval);
+                    newel.replaceChild(newtext,newinp);
+                    newbutton.remove();
+                })
+
+            })
+
+        }
+
+        enterb.addEventListener("click",addelement);
+    </script>
+</body>
+
+</html>

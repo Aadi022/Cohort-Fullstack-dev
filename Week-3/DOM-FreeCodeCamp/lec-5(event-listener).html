@@ -1,0 +1,59 @@
+<!--
+    Here we are implementing a simple addition website for trying out different event list
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Addition</title>
+
+    <style>
+        .first{
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">
+        <input id="inp1" type="text" placeholder="Enter the first number">
+    </div>
+
+    <div class="first">
+        <input id="inp2" type="text" placeholder="Enter the second number">
+    </div>
+
+    <div class="first">
+        <button id="mybutton">Calculate Sum</button>
+    </div>
+
+    <div id="final" class="first"></div>
+
+    <script>
+        const num1=document.getElementById("inp1");
+        const num2=document.getElementById("inp2");
+        const ans=document.getElementById("final");
+        const ev=document.getElementById("mybutton");
+
+        function calculateSum(){
+            const n1=num1.value;
+            const n2=num2.value;
+            const sol= parseInt(n1)+ parseInt(n2); //Normally n1 and n2 are string, so we convert it to int, then compute it. Whatever we get from the browser is in string format.
+            ans.innerHTML=sol;
+        }
+
+        /*
+        function changecolor(){
+            setTimeout(function(){
+                ev.style.backgroundColor="blue";
+            }, 100);
+        }
+        */
+
+        //ev.addEventListener("mouseover",changecolor);
+        ev.addEventListener("click",calculateSum);
+
+        
+    </script>
+</body>
+
+</html>

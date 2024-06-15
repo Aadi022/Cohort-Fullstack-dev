@@ -1,0 +1,75 @@
+<!--
+    Here we will be learning about DOM Traversal
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM PRACTICE</title>
+    <style>
+        .container{
+            padding-left:40px;
+            margin-left:550px;
+            margin-top:150px;
+            border-style:solid;
+            margin-right:300px;
+        }
+
+        .header{
+            font-size:50px
+        }
+
+        .sublist{
+            margin-right:300px;
+            padding-left: 50px;
+            font-size:20px;
+            margin-bottom: 10px;
+            border-style: solid;    
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header" id="main-heading">Favourite Movie Franchise</h1>
+        <ul class="lists">
+            <li class="sublist">The Matrix</li>
+            <li class="sublist">Star Wars</li>
+            <li class="sublist">Harry Potter</li>
+            <li class="sublist">Lord of the Rings</li>
+            <li class="sublist">Marvel</li>
+        </ul>
+    </div>  
+
+    <script>
+        //Trick- Hit and try with .parentnode/.childnode and .parentElement/.childElement, respectively.
+        //Use parentNode and childNode, but use firstElementChild and lastElementChild. Use .previousElementSibling and .nextElementSibling
+
+        //Parent Node Traversal
+        const temp1= document.querySelector("ul");
+        console.log(temp1);
+        const temp1p= temp1.parentNode;
+        console.log(temp1p);
+        console.log(temp1.parentElement);
+        //Therefore, we get the father by doing .parentNode. But if we want the grandfather, we should do .parentNode.parentNode. Similarly, we can repeat it for more the heirarchy we want.
+        console.log(temp1.parentNode.parentNode);
+
+        //Child Node Traversal
+        const temp1c=temp1.childNodes;
+        console.log(temp1c);
+        console.log(temp1.firstChild);  //temp1.firstElementChild will aditionally return the content 
+        console.log(temp1.lastElementChild); 
+
+        //Now if we want to style the node
+        temp1.firstElementChild.style.backgroundColor='blue';
+        temp1.parentElement.style.backgroundColor= 'red';
+
+        console.log(temp1.children);   //logs all the children of temp  
+
+        //Now traversing the siblings
+        console.log(temp1.previousSibling);     //This gives the previous sibling, similary we can get the nextSibling
+        console.log(temp1.previousElementSibling);  //By using the previousElementSibling, we get the content of the previous sibling 
+    </script>
+
+</body>
+</html>

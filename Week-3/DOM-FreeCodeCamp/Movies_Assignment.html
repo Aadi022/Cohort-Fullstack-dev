@@ -1,0 +1,71 @@
+<!--
+    This is a test file to remove an element. Also adding an element
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove an element</title>
+    <style>
+        .main{
+            margin-right: 350px;
+            margin-left: 400px;
+            margin-top: 200px;
+            border-style: solid;
+            padding-left: 200px;
+            padding-right:100px;    
+        }
+
+        .header{
+            font-size: 50px;
+        }
+
+        .sublist{
+            margin-right:100px;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="header">List of Movies</h1>
+        <input type="text" placeholder="Enter the name of the movie"  id="inp">  <button id="newmain">Enter</button>
+        <ul>
+            <li id="m1"  class="sublist" >Avengers</li>
+            <li id="m2" class="sublist">Top Gun</li>
+            <li id="m3" class="sublist">John Wick</li>
+            <li id="m4" class="sublist">Teken</li>
+        </ul>
+        <button id="trigger">Remove Movie</button>
+    </div>
+
+    <script>
+
+        const par=document.querySelector("ul");
+        const newsol=document.getElementById("newmain");
+
+        function elremove(){   //Removes the last list in sublist
+            const todel=par.lastElementChild;  //We remove the last element child of <ul>
+            todel.remove();
+        }
+
+
+        function append(){
+            const inst=document.createElement("li");  //We create an instance of the element to be created
+            par.appendChild(inst);  //We append it to its parent, i.e. <ul>
+            inst.innerText=document.getElementById("inp").value; //We get the string entered in the input box, and assign it in the instance we created
+            inst.setAttribute("class","sublist");  //We now make the attributes of the newly created list instance same as the other lists
+
+            document.getElementById("inp").value="";   //Reseting the value of the input box
+        }
+
+        const sol=document.getElementById("trigger");
+        sol.addEventListener("click",elremove);
+        newsol.addEventListener("click",append);
+
+    </script>
+</body>
+</html>

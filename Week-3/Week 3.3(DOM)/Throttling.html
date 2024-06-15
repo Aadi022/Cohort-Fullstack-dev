@@ -1,0 +1,47 @@
+<!--
+    We are going to fetch an api, and incorporate dom in  it.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DOM-1 Practice</title>
+    <style>
+        .mybutton{
+            cursor: pointer;
+            margin-bottom : 15px;
+        }
+        .fc{
+            margin-bottom: 15px;
+        }
+        .sc{
+            margin-bottom: 15px;
+        }
+    </style> 
+</head>
+<script>
+    /*
+    We are using throttling here. In throttling, the request goes out without clicking the 'CalculateSum' Button. We make use of 'oninput' where the number is given.
+    An example of this will be in youtube searchbar, where we write our required content and the recommendations tune according to that.
+    */
+
+    async function populateDiv(){
+        const a=document.getElementById("firstNumber").value;  
+        const b=document.getElementById("secondNumber").value; 
+        const element= document.getElementById("finalSum");
+        //fetch
+        const res=await fetch("https://sum-server.100xdevs.com/sum?a=", a, "&b=", b);  //The Backend is not working but the request goes out
+        const ans=await res.text(); //.text() is used to retrieve the text content of an element in the DOM. DOM only understands string format
+        console.log(ans);
+    }
+</script>
+<body>
+    <div class="fc">
+        <input oninput="populateDiv()"  id="firstNumber" type="text" placeholder="Enter first number">
+    </div>
+    <div class="sc">
+        <input oninput="populateDiv()"  id="secondNumber" type="text" placeholder="Enter second number">
+    </div>
+    <div id="finalSum"> </div>
+</body>
+</html> 

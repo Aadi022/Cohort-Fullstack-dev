@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MyTab</title>
+</head>
+
+<body>
+    <script>
+        async function getAnimalData(){    //Normally fetching an api is always an asynchronous function.
+            const resp=await fetch("https://fakerapi.it/api/v1/persons");   //fetching this api gives a promise, so we use async await to resolve the promise. We await resp, so this gets processed and resolved while work is assigned further.
+            const finalData= await resp.json();    //logging resp.json() also returns a promise, which means that we'll have to await this as well. When finalData gets resolved, the control goes to logging the finalData.
+            console.log(finalData);
+        }
+    </script>
+    <button onclick="getAnimalData()">Get Animal Data</button>
+
+</body>
+
+</html>

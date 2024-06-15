@@ -1,0 +1,57 @@
+<!--
+    We are going to fetch an api, and incorporate dom in  it.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DOM-1 Practice</title>
+    <style>
+        .mybutton{
+            cursor: pointer;
+            margin-bottom : 15px;
+        }
+        .fc{
+            margin-bottom: 15px;
+        }
+        .sc{
+            margin-bottom: 15px;
+        }
+    </style> 
+</head>
+<script>
+    /*
+    This is the debouncing we are doing in the throttling code.
+    Debouncing means to send a request when the entire text is written, and not when each letter is written.
+    Here, in the debouncedPopulateDiv() function, the logic is-
+    If the deouncedPopulateDiv() isn't called in 100 ms, then it'll call populateDiv().
+    But if the function is called within 100 ms, then it won't call populateDiv().
+    */
+    let timeout=0;
+    function debouncedpopulateDiv(){
+        clearTimeout(timeout);
+        timeout=setTimeout(function(){
+            populateDiv()
+        },100)
+    }
+
+    async function populateDiv(){
+        const a=document.getElementById("firstNumber").value;  
+        const b=document.getElementById("secondNumber").value; 
+        const element= document.getElementById("finalSum");
+        //fetch
+        const res=await fetch("https://sum-server.100xdevs.com/sum?a=", a, "&b=", b);  //The Backend is not working but the request goes out
+        const ans=await res.text(); //.text() is used to retrieve the text content of an element in the DOM. DOM only understands string format
+        console.log(ans);
+    }
+</script>
+<body>
+    <div class="fc">
+        <input oninput="populateDiv()"  id="firstNumber" type="text" placeholder="Enter first number">
+    </div>
+    <div class="sc">
+        <input oninput="populateDiv()"  id="secondNumber" type="text" placeholder="Enter second number">
+    </div>
+    <div id="finalSum"> </div>
+</body>
+</html> 

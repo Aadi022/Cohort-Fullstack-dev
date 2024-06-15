@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM PRACTICE</title>
+    <style>
+        .container{
+            padding-left:40px;
+            margin-left:550px;
+            margin-top:150px;
+            border-style:solid;
+            margin-right:300px;
+        }
+
+        .header{
+            font-size:50px
+        }
+
+        .sublist{
+            margin-right:300px;
+            padding-left: 50px;
+            font-size:20px;
+            margin-bottom: 10px;
+            border-style: solid;    
+        }
+
+    </style>
+</head>
+<script>
+    const title=document.getElementById("main-heading");  //ByID
+    console.log(title);
+    const listItem=document.getElementsByClassName("sublist");
+    //console.log(listItem);
+    //const mylist=document.getElementsByTagName("li");
+    //console.log(mylist); 
+
+    /*document.querySelector() accepts a div/list/class as its argument.
+    It can selects the first one it encounters. document.querySelecterAll() 
+    selects all the input it is given, instead of selecting the first one. 
+    */
+    
+</script>
+<body>
+    <div class="container">
+        <h1 class="header" id="main-heading">Favourite Movie Franchise</h1>
+        <ul class="lists">
+            <li class="sublist">The Matrix</li>
+            <li class="sublist">Star Wars</li>
+            <li class="sublist">Harry Potter</li>
+            <li class="sublist">Lord of the Rings</li>
+            <li class="sublist">Marvel</li>
+        </ul>
+    </div>
+</body>
+</html>

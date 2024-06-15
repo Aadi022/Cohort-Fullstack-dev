@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> DOM-1 Practice</title>
+    <style>
+        .mybutton{
+            cursor: pointer;
+            margin-bottom : 15px;
+        }
+        .fc{
+            margin-bottom: 15px;
+        }
+        .sc{
+            margin-bottom: 15px;
+        }
+    </style> 
+</head>
+<script>
+    //We can also do document.getElementByClassName . By this we can manipulate the features of the class
+    function populateDiv(){
+        //Document helps in making the page interactive
+        //const element=document.getElementById("finalSum");  //getElementById assigns the div(of which finalSum is the ID) to element, and now we can do manipulations with the help of element.
+        //element.innerHTML="Hello world"  //innerHTML reads the html content of that variable to the web page
+        const a=document.getElementById("firstNumber").value;  //.value gets the value of the <text>
+        const b=document.getElementById("secondNumber").value; //Browser always returns a string whenever we do .value
+        const sum=parseInt(a)+parseInt(b);  //parseInt converts any data type to integer
+        const element= document.getElementById("finalSum");
+        element.innerHTML=sum;  //This means that we now manipulated the div, whose id was handled by element, to show its html text in the web page, which is assigned sum.
+    }
+</script>
+<body>
+    <div class="fc">
+        <input id="firstNumber" type="text" placeholder="Enter first number">
+    </div>
+    <div class="sc">
+        <input id="secondNumber" type="text" placeholder="Enter second number">
+    </div>
+    <button onclick="populateDiv()" class="mybutton">Calculate Sum</button>
+    <div id="finalSum"> </div>
+</body>
+</html> 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing</title>
+
+    <style>
+        .enable{
+            font-style:italic;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="mybutton">Trial button</button>
+
+    <script>
+        const mybutton=document.getElementById("mybutton");
+        function trigger(){
+            mybutton.classList.add("enable");
+        }
+        function trigger2(){
+            mybutton.classList.remove("enable");
+        }
+        mybutton.addEventListener("click",trigger);
+        //mybutton.addEventListener("mouseover",trigger2);
+    </script>
+</body>
+</html>
+
+<!--
+    With classList, you can add, remove, toggle, and check the existence of classes on an element without having to manually manipulate 
+    the className string.
+
+    Here's a brief overview of the main methods provided by classList:
+
+    add(className) - Adds the specified class to the element.
+    remove(className) - Removes the specified class from the element.
+    toggle(className) - Toggles the class (adds it if it doesn't exist, removes it if it does).
+    contains(className) - Checks if the element has the specified class.
+    replace(oldClass, newClass) - Replaces an existing class with a new class.
+-->>
